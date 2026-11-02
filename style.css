@@ -1,0 +1,13 @@
+:root {
+--bg-color:#F8F9FA;
+--card-bg:#ffffff;
+--text-main: #333333;
+--purple-text: #5958A6;
+--purple-bg: rgba(119, 118, 188, 0.12);
+--green-text: #2EAC70;
+--green-bg: rgba(148, 236, 190, 0.25);
+--blue-text: #2774A6;
+--blue-bg: rgb(39, 116, 166, 0.25);
+--pink-text: #A62E52;
+--pink-bg: rgb(166, 46, 82, 0.12);
+}
