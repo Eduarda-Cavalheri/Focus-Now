@@ -14,7 +14,7 @@
         </div>
 
         <nav class="sidebar-nav">
-            <span class="nav-title">Navegação</span>
+            <span class="nav-title">Navigation</span>
             <ul>
                 <li><a href="#" class="active"><img src="/assets/icons/squares-four.svg" alt="Icon" class="nav-icon">Dashboard</a></li>
                 <li><a href="#"><img src="/assets/icons/timer.svg" alt="Icon" class="nav-icon">Pomodoro</a></li>
@@ -33,8 +33,60 @@
         </div>
     </aside>
 
-    <main>
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-info">
+                <h2 class="current-date">04 de novembro de 2026</h2>
+                <p class="quote">Frase motivacional do dia.</p>
+            </div>
 
+            <div class="weekly-progress">
+                <span class="progress-title">Horas estudadas na semana</span>
+                <span class="progress-state">0h de 20h</span>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <!--Main grid-->
+       <section class="dashboard-grid">
+        <!--Calendar-->
+        <article class="calendar-card">
+            <h3>Calendário do mês</h3>
+            <div class="calendar-placeholder">
+            <!--calendar days are going here-->
+            </div>
+        </article>
+
+        <article class="tasks-card">
+            <div class="tasks-header">
+                <h3>Tasks of the day</h3>
+                <a href="#" class="link-tasks">Go to tasks <img src="/assets/icons/arrow-right.svg" alt="Arrow" class="small-icon"></a>
+            </div>
+            <!--User WITH tasks-->
+            <ul class="task-list">
+                <li>
+                    <input type="checkbox" id="task1">
+                    <label for="task1">Tarefa 1: estudar x horas</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task2">
+                    <label for="task2">Tarefa 2: fazer marmitas</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="task3">
+                    <label for="task3">Tarefa 3: levar gato pro veterinario</label>
+                </li>
+            </ul>
+
+            <!--User WITHOUT tasks-->
+            <div class="empty-state">
+                <p>Nenhuma tarefa para hoje.</p>
+                <button class="add-task-btn">Adicione uma tarefa...</button>
+            </div>
+        </article>
+       </section> 
     </main>
 <script src="script.js"></script>
 </body>

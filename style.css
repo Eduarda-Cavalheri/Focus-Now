@@ -12,7 +12,136 @@
 --pink-bg: rgb(166, 46, 82, 0.12);
 }
 
+body{
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: sans-serif;
+    margin: 0;
+
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar{
+    box-sizing: border-box;
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    max-height: 100vh;
+
+    background-color: var(--card-bg);
+    border-right: 1px solid #EAEAEA;
+
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    overflow: hidden;
+}
+
+/*Sidebar nav style*/
+
+.nav-title{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-nav{
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.sidebar-nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 500;
+
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 .sidebar-nav a .nav-icon{
     width: 20px;
     height: 20px;
+    opacity: 0.8;
+}
+
+.sidebar-nav a:hover{
+    background-color: #F0F0F4;
+}
+
+.sidebar-nav a.active{
+    background-color: var(--purple-bg);
+    color: var(--purple-text);
+    font-weight: 600;
+}
+
+.sidebar-nav a.active .nav-icon{
+    opacity: 1;
+}
+
+/*Sidebar footer*/
+
+.sidebar-footer{
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.theme-toggle{
+    width: 100%;
+    padding: 12px 16px;
+    background-color: transparent;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.theme-toggle .nav-icon{
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+}
+
+.theme-toggle:hover{
+    background-color: #F0F0F4;
+    border-color: #D1D1D6;
+}
+
+.main-content{
+    flex: 1;
+    height: 100vh;
+    padding: 32px;
+    overflow-y: auto;
 }
