@@ -264,7 +264,7 @@ body{
     align-items: stretch;
 }
 
-.calendar-card, .tasks-card{
+.calendar-card{
     background-color: var(--card-bg);
     border: 1px solid #eaeaea;
     border-radius: 12px;
@@ -287,6 +287,15 @@ body{
 
 .tasks-header h3{
     margin-bottom: 0;
+}
+
+.tasks-card{
+    background-color: var(--card-bg);
+    border: 1px solid #EAEAEA;
+    border-radius: 12px;
+    padding: 24px;
+
+    align-self: center;
 }
 
 .link-tasks{
