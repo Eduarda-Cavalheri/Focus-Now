@@ -345,6 +345,12 @@ body{
     cursor: pointer;
 }
 
+.task-list li.completed label{
+    text-decoration: line-through;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
 /* calendar*/
 
 .calendar-card{
@@ -425,4 +431,89 @@ body{
 .day.active-dark{
     background-color: var(--purple-text);
     color: #ffffff;
+}
+
+/* dark theme*/
+
+body.dark-mode{
+
+    --dark-bg-base: #000000;
+    --dark-bg-panel: #18181b;
+    --dark-bg-inner: #242426;
+    --dark-bg-hover: #4b4b50;
+    --dark-border: #2a2a2d;
+    --dark-text-main: #ffffff;
+    --dark-text-muted: #a1a1aa;
+    
+    background-color: var(--dark-bg-base);
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .main-content,
+body.dark-mode .calendar-card,
+body.dark-mode .tasks-card,
+body.dark-mode .weekly-progress {
+    background-color: var(--dark-bg-panel);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .task-list,
+body.dark-mode .week-tracker-container {
+    background-color: var(--dark-bg-inner);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .sidebar a:hover{
+    background-color: var(--dark-bg-hover);
+    color: var(--dark-text-main);
+}
+body.dark-mode .nav-title,
+body.dark-mode .sidebar a,
+body.dark-mode .quote,
+body.dark-mode .progress-title,
+body.dark-mode .week-tracker-label,
+body.dark-mode .weekday {
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .current-date,
+body.dark-mode .progress-stats,
+body.dark-mode .month-title,
+body.dark-mode .day,
+body.dark-mode .task-list label{
+  color: var(--dark-text-main);
+}
+
+body.dark-mode .day:hover,
+body.dark-mode .theme-toggle:hover {
+    background-color: var(--dark-bg-hover);
+    color: var(--dark-text-main);
+}
+
+body.dark-mode .day-slot{
+    background-color: var(--dark-bg-inner);
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .day-slot.active {
+    background-color: #7776bc;
+    color: #FFFFFF;
+}
+
+body.dark-mode .add-task-btn {
+    background-color: var(--dark-bg-inner);
+    color: var(--dark-text-main);
+    border: 1px solid var(--dark-border);
+}
+
+body.dark-mode .sidebar img,
+body.dark-mode .theme-toggle img,
+body.dark-mode .link-tasks img{
+    filter: invert(0.8) brightness(1.2);
+}
+
+body.dark-mode .icon-btn,
+body.dark-mode .theme-toggle{
+    color: var(--dark-text-main);
 }
