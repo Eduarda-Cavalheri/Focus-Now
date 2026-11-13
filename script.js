@@ -79,3 +79,57 @@ function atualizarTitulosDeData() {
 }
 
 atualizarTitulosDeData();
+
+//task manager
+
+const taskInput = document.getElementById('task-input');
+const taskListContainer = document.getElementById('task-list-container');
+const emptyMessage = document.getElementById('empty-task-message');
+
+if (taskInput) {
+    taskInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter' && taskInput.value.trim() !== '') {
+            const taskText = taskInput.value.trim();
+
+            createTaskElement(taskText);
+
+            taskInput.value = '';
+
+            emptyMessage.style.display = 'none'
+        }
+    });
+}
+
+function createTaskElement(text) {
+    const taskItem = document.createElement('div');
+    taskItem.classList.add('task-item');
+
+    const taskContent = document.createElement('div');
+    taskContent.classList.add('task-content');
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+
+    const label = document.createElement('label');
+    label.textContent = text;
+
+    taskContent.appendChild(checkbox);
+    taskContent.appendChild(label);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.innerHTML = '&#10005;';
+
+    deleteBtn.addEventListener('click', function(){
+        taskItem.remove();
+
+        if (taskListContainer.children.length === 0) {
+            emptyMessage.style.display = 'block';
+        }
+    });
+
+    taskItem.appendChild(taskContent);
+    taskItem.appendChild(deleteBtn);
+
+    taskListContainer.appendChild(taskItem);
+}

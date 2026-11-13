@@ -292,22 +292,21 @@ body{
     padding: 20px;
 }
 
-.calendar-card h3, .tasks-card h3{
+.calendar-card h3 {
     font-size: 16px;
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 16px;
 }
 
-.tasks-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+/* task system*/
+
+.tasks-body {
+    margin-top: 16px;
 }
 
-.tasks-header h3{
-    margin-bottom: 0;
+#task-list-container {
+    margin-bottom: 12px;
 }
 
 .tasks-card{
@@ -334,42 +333,76 @@ body{
     height: 14px;
 }
 
-.task-list{
-    list-style: none;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    background-color: #fafafa;
-    padding: 16px;
-    border-radius: 12px;
-    border: 1px solid #eaeaea;
+#task-input {
+    width: 95%;
+    padding: 8px 12px;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    outline: none;
 }
 
+#task-input:focus {
+    border-color: var(--purple-text);
+}
 
-.task-list li{
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background-color: var(--bg-color);
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.task-content {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.task-list input[type='checkbox']{
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-}
-
-.task-list label{
-    font-size: 14px;
     color: var(--text-main);
-    cursor: pointer;
+    font-size: 0.9rem;
 }
 
-.task-list li.completed label{
-    text-decoration: line-through;
-    color: var(--text-main);
-    transition: all 0.3s ease;
+.delete-btn {
+    background: none;
+    border: none;
+    color: #d9778d;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 0 4px;
+}
+
+.delete-btn:hover {
+    color: #be5c79;
+}
+
+.empty-message {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    display: block;
+}
+
+body.dark-mode #task-input,
+body.dark-mode .task-item {
+    background-color: var(--dark-bg-inner);
+    color: var(--dark-text-main);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .task-content {
+    color: var(--dark-text-main);
+}
+
+body.dark-mode .empty-message {
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .delete-btn:hover {
+    color: #f49ead;
 }
 
 /* calendar*/

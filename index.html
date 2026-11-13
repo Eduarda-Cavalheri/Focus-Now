@@ -84,29 +84,16 @@
 
         <article class="tasks-card">
             <div class="tasks-header">
-                <h3>Tasks of the day</h3>
                 <a href="#" class="link-tasks">Go to tasks <img src="/assets/icons/arrow-right.svg" alt="Arrow" class="small-icon"></a>
             </div>
-            <!--User WITH tasks-->
-            <ul class="task-list">
-                <li>
-                    <input type="checkbox" id="task1">
-                    <label for="task1">Tarefa 1: estudar x horas</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="task2">
-                    <label for="task2">Tarefa 2: fazer marmitas</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="task3">
-                    <label for="task3">Tarefa 3: levar gato pro veterinario</label>
-                </li>
-            </ul>
 
-            <!--User WITHOUT tasks-->
-            <div class="empty-state">
-                <p>Nenhuma tarefa para hoje.</p>
-                <button class="add-task-btn">Adicione uma tarefa...</button>
+            <div class="tasks-body">
+                <p id="empty-task-message" class="empty-message">No tasks for today.</p>
+                <div id="task-list-container"></div>
+
+            <div class="tasks-footer">
+                <input type="text" id="task-input" placeholder="Add a task and press Enter..." autocomplete="off">
+            </div>
             </div>
         </article>
        </section> 
