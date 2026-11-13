@@ -10,6 +10,15 @@
 --blue-bg: rgb(39, 116, 166, 0.25);
 --pink-text: #A62E52;
 --pink-bg: rgb(166, 46, 82, 0.12);
+
+/*dark mode*/
+--dark-bg-base: #000000;
+--dark-bg-panel: #18181b;
+--dark-bg-inner: #242426;
+--dark-bg-hover: #4b4b50;
+--dark-border: #2a2a2d;
+--dark-text-main: #ffffff;
+--dark-text-muted: #a1a1aa;
 }
 
 body{
@@ -170,11 +179,23 @@ body{
 }
 
 /* left son*/
-.current-date{
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-main);
-    margin: 0 0 8px 0;
+.header-date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.today-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--dark-border);
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark-text-muted);
+    background-color: transparent;
 }
 
 .quote{
@@ -436,15 +457,6 @@ body{
 /* dark theme*/
 
 body.dark-mode{
-
-    --dark-bg-base: #000000;
-    --dark-bg-panel: #18181b;
-    --dark-bg-inner: #242426;
-    --dark-bg-hover: #4b4b50;
-    --dark-border: #2a2a2d;
-    --dark-text-main: #ffffff;
-    --dark-text-muted: #a1a1aa;
-    
     background-color: var(--dark-bg-base);
     color: var(--dark-text-muted);
 }

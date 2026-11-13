@@ -54,3 +54,28 @@ function gerarCalendario(containerId) {
 }
 
 gerarCalendario('calendar-days');
+
+function atualizarTitulosDeData() {
+    const dataAtual = new Date();
+
+    const opcoesHeader = {month: 'long', day: '2-digit', year: 'numeric'};
+
+    const dataHeaderString = dataAtual.toLocaleDateString('en-US', opcoesHeader);
+
+    const opcoesCalendario = {month: 'long', year: 'numeric'};
+
+    const dataCalendarioString = dataAtual.toLocaleDateString('en-US', opcoesCalendario);
+
+    const headerDateElement = document.getElementById('header-date');
+    const calendarTitleElement = document.getElementById('calendar-month-title');
+
+    if (headerDateElement) {
+        headerDateElement.textContent = dataHeaderString;
+    }
+
+    if (calendarTitleElement) {
+        calendarTitleElement.textContent = dataCalendarioString;
+    }
+}
+
+atualizarTitulosDeData();
