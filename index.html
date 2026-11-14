@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusNow</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/tasks.css">
+    <link rel="stylesheet" href="./css/calendar.css">
+    <link rel="stylesheet" href="./css/pomodoro.css">
+
 </head>
 <body>
     <aside class="sidebar">
         <div class="sidebar-header">
             <h1>FocusNow</h1>
-            <p class="greeting">Hello, User.</p>
+            <p class="greeting">Welcome back, Maria!</p>
         </div>
 
         <nav class="sidebar-nav">
@@ -37,16 +43,16 @@
         <header class="dashboard-header">
             <div class="header-date-container">
                 <span class="today-badge">Today</span>
-                <h2 id="header-date">Carregando data...</h2>
-                <p class="quote">Frase motivacional do dia.</p>
+                <h2 id="header-date">Loading date...</h2>
+                <p class="quote">Quote of the day.</p>
             </div>
 
             <div class="weekly-progress">
-                <span class="progress-title">Horas estudadas na semana</span>
-                <span class="progress-stats">10h de 20h</span>
+                <span class="progress-title">Hours studied this week</span>
+                <span class="progress-stats">10h of 20h</span>
 
                 <div class="week-tracker-container">
-                    <span class="week-tracker-label">Calendário da semana</span>
+                    <span class="week-tracker-label">Week Calendar</span>
                     <div class="week-tracker-days">
                         <div class="day-slot active">S</div>
                         <div class="day-slot">M</div>
@@ -66,7 +72,7 @@
         <article class="calendar-card">
             <div class="calendar-header">
                 <button class="icon-btn">&lt</button>
-                <h3 id="calendar-month-title">Carregando mês...</h3>
+                <h3 id="calendar-month-title">Loading month...</h3>
                 <button class="icon-btn">&gt</button>
                 </div>
             </div>
@@ -92,12 +98,17 @@
                 <div id="task-list-container"></div>
 
             <div class="tasks-footer">
-                <input type="text" id="task-input" placeholder="Add a task and press Enter..." autocomplete="off">
+                <input type="text" id="task-input" placeholder="Add a task..." autocomplete="off">
+                <button id="add-task-btn" class="add-task-btn">+</button>
             </div>
             </div>
         </article>
        </section> 
+
     </main>
-<script src="script.js"></script>
+    <script src="./js/navigation.js" defer></script>
+    <script src="./js/calendar.js" defer></script>
+    <script src="./js/tasks.js" defer></script>
+    <script src="./js/pomodoro.js" defer></script>
 </body>
 </html>

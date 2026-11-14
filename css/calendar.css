@@ -1,0 +1,125 @@
+.calendar-card{
+    background-color: var(--card-bg);
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.calendar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.calendar-grid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+    flex: 1;
+    align-content: space-evenly;
+}
+
+.month-title{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.icon-btn{
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s ease;
+}
+
+.icon-btn:hover{
+    color: var(--text-main);
+}
+
+.weekday{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.day{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    font-size: 14px;
+    color: var(--text-main);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.day:hover{
+    background-color: #f0f0f4;
+}
+
+.day.today{
+    border: 1px solid var(--text-main);
+    font-weight: 700;
+}
+
+.day.active-light{
+    background-color: #e9d8fd;
+    color: #553c9a;
+}
+
+.day.active-dark{
+    background-color: var(--purple-text);
+    color: #ffffff;
+}
+
+/* dark-mode*/
+body.dark-mode .calendar-card{
+    background-color: var(--dark-bg-panel);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .weekday {
+    color: var(--dark-text-muted);
+}
+
+
+body.dark-mode .icon-btn{
+    color: var(--dark-text-main);
+}
+
+
+body.dark-mode .day:hover {
+    background-color: var(--dark-bg-hover);
+    color: var(--dark-text-main);
+}
+
+body.dark-mode .day-slot{
+    background-color: var(--dark-bg-inner);
+    color: var(--dark-text-muted);
+}
+
+body.dark-mode .day-slot.active {
+    background-color: #7776bc;
+    color: #FFFFFF;
+}
+
+body.dark-mode .day{
+    color: var(--dark-text-muted);
+}
