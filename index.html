@@ -105,6 +105,121 @@
         </article>
        </section> 
 
+
+       <!--Pomodoro Timer-->
+    <section id="pomodoro" class="pomodoro-section">
+        <div class="pomodoro-layout">
+
+            <!--background sound-->
+            <aside class="sound-panel pomodoro-box">
+                <h3>Background Sound</h3>
+                <div class="sound-group">
+                    <p>Ready sounds</p>
+                    <button class="sound-btn">Rain</button>
+                    <button class="sound-btn">Brown noise</button>
+                </div>
+
+                <div class="sound-group">
+                    <p>Spotify playlist</p>
+                    <input type="text" placeholder="Enter playlist URL" class="pomodoro-input">
+                </div>
+
+                <div class="sound-group">
+                    <p>Youtube video</p>
+                    <input type="text" placeholder="Enter video URL" class="pomodoro-input">
+                </div>
+
+                <div class="sound-group">
+                    <p>Volume</p>
+                    <input type="range" min="0" max="100" value="50" class="volume-slider">
+                </div>
+            </aside>
+        
+
+        <!--clock and config-->
+        <div class='timer-config-wrapper pomodoro-box'>
+
+            <!--timer principal-->
+            <div class="timer-panel">
+                <button class='icon-btn'>🎵</button>
+                <div class="timer-header">
+                    <span class='status-badge'>Ready to start</span>
+                    <span class="subject-badge">Subject</span>
+                </div>
+
+                <div class="timer-circle">
+                    <h1 id="time-left">50:00</h1>
+                </div>
+
+                <div class="pomodoro-controls">
+                    <button id="pause-btn" class="control-btn">Pause</button>
+                    <button id="start-btn" class="control-btn">Start focus</button>
+                    <button id="cancel-btn" class="control-btn">Cancel</button>
+                </div>
+            </div>
+
+            <!--session config-->
+            <div class="config-panel">
+                <h3>Session configuration</h3>
+
+                <div class="config-group">
+                    <label>Focus duration (minutes)</label>
+                    <div class="pill-group">
+                        <button class="time-pill">25m</button>
+                        <button class="time-pill active-pill">50m</button>
+                        <button class="time-pill">60m</button>
+                        <button class="time-pill">90m</button>
+                        <button class="time-pill">120m</button>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Pause duration (minutes)</label>
+                    <div class="pill-group">
+                        <button class="time-pill">5m</button>
+                        <button class="time-pill active-pill">10m</button>
+                        <button class="time-pill">15m</button>
+                        <button class="time-pill">20m</button>
+                        <button class="time-pill">30m</button>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Number of sessions</label>
+                    <div class="pill-group">
+                        <button class="time-pill">1</button>
+                        <button class="time-pill active-pill">2</button>
+                        <button class="time-pill">3</button>
+                        <button class="time-pill">4</button>
+                        <button class="time-pill">5</button>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Enter subject..." class="pomodoro-input">
+                </div>
+
+                <div class="config-group">
+                    <label>Study type</label>
+                    <select class="pomodoro-input">
+                        <option value="theory">Theory</option>
+                        <option value="practice">Practice</option>
+                        <option value="questions">Questions</option>
+                        <option value="review">Review</option>
+                    </select>
+                </div>
+
+                <div class="total-time-box">
+                    <p class="total-title">Total session time</p>
+                    <p class="total-calc">Focus time + Pause time</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
     </main>
     <script src="./js/navigation.js" defer></script>
     <script src="./js/calendar.js" defer></script>
