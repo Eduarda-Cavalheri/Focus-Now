@@ -10,8 +10,7 @@
 .calendar-card h3 {
     font-size: 16px;
     font-weight: 600;
-    margin-top: 0;
-    margin-bottom: 16px;
+    margin: 0;
 }
 
 .calendar-header{
@@ -37,18 +36,23 @@
     color: var(--text-main);
 }
 
-.icon-btn{
-    background: none;
-    border: none;
-    font-size: 18px;
+.calendar-nav-btn{
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
     color: var(--text-main);
     cursor: pointer;
-    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: color 0.2s ease;
 }
 
-.icon-btn:hover{
-    color: var(--text-main);
+.calendar-nav-btn:hover{
+    color: #8a8b8b;
 }
 
 .weekday{
@@ -59,6 +63,8 @@
 }
 
 .day{
+    width: 36px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,6 +108,11 @@ body.dark-mode .weekday {
 
 body.dark-mode .icon-btn{
     color: var(--dark-text-main);
+}
+
+body.dark-mode .calendar-nav-btn {
+    color: var(--dark-text-main);
+    border-color: var(--dark-border);
 }
 
 
