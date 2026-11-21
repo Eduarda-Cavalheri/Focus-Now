@@ -71,9 +71,9 @@
         <!--Calendar-->
         <article class="calendar-card">
             <div class="calendar-header">
-                <button class="icon-btn">&lt</button>
+                <button id="prev-month" class="calendar-nav-btn">&lt;</button>
                 <h3 id="calendar-month-title">Loading month...</h3>
-                <button class="icon-btn">&gt</button>
+                <button id="next-month" class="calendar-nav-btn">&gt;</button>
                 </div>
             </div>
 
@@ -115,8 +115,8 @@
                 <h3>Background Sound</h3>
                 <div class="sound-group">
                     <p>Ready sounds</p>
-                    <button class="sound-btn">Rain</button>
-                    <button class="sound-btn">Brown noise</button>
+                    <button class="sound-btn" data-sound="rain">Rain</button>
+                    <button class="sound-btn" data-sound="brown-noise">Brown noise</button>
                 </div>
 
                 <div class="sound-group">
@@ -131,7 +131,7 @@
 
                 <div class="sound-group">
                     <p>Volume</p>
-                    <input type="range" min="0" max="100" value="50" class="volume-slider">
+                    <input type="range" id="volume-slider" min="0" max="100" value="50" class="volume-slider">
                 </div>
             </aside>
         
@@ -141,9 +141,9 @@
 
             <!--timer principal-->
             <div class="timer-panel">
-                <button class='icon-btn'>🎵</button>
+                <button id="music-toggle-btn" class='icon-btn'>🎵</button>
                 <div class="timer-header">
-                    <span class='status-badge'>Ready to start</span>
+                    <span class='status-badge' id="status-badge">Ready to start</span>
                     <span class="subject-badge">Subject</span>
                 </div>
 
@@ -164,7 +164,7 @@
 
                 <div class="config-group">
                     <label>Focus duration (minutes)</label>
-                    <div class="pill-group">
+                    <div class="pill-group" id="focus-pills">
                         <button class="time-pill">25m</button>
                         <button class="time-pill active-pill">50m</button>
                         <button class="time-pill">60m</button>
@@ -175,7 +175,7 @@
 
                 <div class="config-group">
                     <label>Pause duration (minutes)</label>
-                    <div class="pill-group">
+                    <div class="pill-group" id="pause-pills">
                         <button class="time-pill">5m</button>
                         <button class="time-pill active-pill">10m</button>
                         <button class="time-pill">15m</button>
@@ -186,7 +186,7 @@
 
                 <div class="config-group">
                     <label>Number of sessions</label>
-                    <div class="pill-group">
+                    <div class="pill-group" id="session-pills">
                         <button class="time-pill">1</button>
                         <button class="time-pill active-pill">2</button>
                         <button class="time-pill">3</button>
@@ -197,7 +197,7 @@
 
                 <div class="config-group">
                     <label>Subject</label>
-                    <input type="text" placeholder="Enter subject..." class="pomodoro-input">
+                    <input type="text" id="subject-input" placeholder="Enter subject..." class="pomodoro-input">
                 </div>
 
                 <div class="config-group">
@@ -212,7 +212,10 @@
 
                 <div class="total-time-box">
                     <p class="total-title">Total session time</p>
-                    <p class="total-calc">Focus time + Pause time</p>
+                    <p class="total-calc" id="total-session-time">0m (0h)</p>
+
+                    <p class="total-title" style="margin-top: 12px;">Net focus time</p>
+                    <p class="total-calc" id="net-focus-time">0m (0h)</p>
                 </div>
             </div>
 
@@ -225,5 +228,6 @@
     <script src="./js/calendar.js" defer></script>
     <script src="./js/tasks.js" defer></script>
     <script src="./js/pomodoro.js" defer></script>
+    <script src="./js/audio.js" defer></script>
 </body>
 </html>
