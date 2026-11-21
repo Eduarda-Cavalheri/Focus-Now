@@ -42,6 +42,12 @@
     display: block;
 }
 
+.sound-btn.active-sound {
+    background-color: var(--purple-text);
+    color: #ffffff;
+    border-color: var(--purple-text);
+}
+
 .pomodoro-input {
     width: 95%;
     padding: 8px 12px;
@@ -260,6 +266,12 @@ body.dark-mode #start-btn {
 
 body.dark-mode #start-btn:hover {
     background-color: #714fa8;
+}
+
+body.dark-mode .sound-btn.active-sound {
+    background-color: var(--purple-text);
+    color: #ffffff;
+    border-color: var(--purple-text);
 }
 
 body.dark-mode .timer-panel {
