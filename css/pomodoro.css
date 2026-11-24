@@ -17,10 +17,19 @@
 }
 
 .sound-panel {
-    flex: 0 0 260px;
+    width: 340px;
+    min-width: 340px;
+    max-width: 340px;
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    align-self: center;
+    gap: 20px;
+}
+
+.media-embed-container:empty {
+    display: none;
 }
 
 .timer-config-wrapper {
@@ -84,6 +93,182 @@
     width: 100%;
     accent-color: var(--purple-text);
     cursor: pointer;
+}
+
+.media-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.media-input-row .pomodoro-input {
+    flex: 1;
+    min-width: 0;
+}
+
+.load-media-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background-color: transparent;
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.load-media-btn:hover {
+    background-color: var(--purple-text);
+    color: #ffffff;
+    border-color: var(--purple-text);
+}
+
+/* container for the embedded player */
+.media-embed-container {
+    margin-top: 16px;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.clear-embed-btn {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 6px;
+}
+
+.clear-embed-btn:hover {
+    text-decoration: underline;
+}
+
+/* youtube player*/
+
+.custom-player-card {
+    background-color: #242124;
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.player-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.player-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #363338;
+    flex-shrink: 0;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.player-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-artist {
+    font-size: 12px;
+    color: #a1a1aa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.player-ctrl-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffffff;
+    color: #242124;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.player-ctrl-btn:hover {
+    transform: scale(1.08);
+}
+
+.player-ctrl-btn.play-main {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+}
+
+.player-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-time {
+    background-color: #181618;
+    color: #e4e4e7;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 7px;
+    border-radius: 6px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.player-progress-bar {
+    flex: 1;
+    accent-color: #7776bc;
+    cursor: pointer;
+    height: 4px;
+}
+
+.yt-hidden-engine {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 /*timer*/
@@ -233,6 +418,8 @@
     color: var(--text-muted);
 }
 
+
+
 /*dark mode*/
 
 body.dark-mode .pomodoro-box,
@@ -272,6 +459,11 @@ body.dark-mode .sound-btn.active-sound {
     background-color: var(--purple-text);
     color: #ffffff;
     border-color: var(--purple-text);
+}
+
+body.dark-mode .load-media-btn {
+    color: var(--dark-text-main);
+    border-color: var(--dark-border);
 }
 
 body.dark-mode .timer-panel {

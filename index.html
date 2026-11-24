@@ -120,19 +120,19 @@
                 </div>
 
                 <div class="sound-group">
-                    <p>Spotify playlist</p>
-                    <input type="text" placeholder="Enter playlist URL" class="pomodoro-input">
-                </div>
-
-                <div class="sound-group">
                     <p>Youtube video</p>
-                    <input type="text" placeholder="Enter video URL" class="pomodoro-input">
+                    <div class="media-input-row">
+                        <input type="text" id="youtube-input" placeholder="Enter video URL" class="pomodoro-input">
+                        <button id="load-youtube-btn" class="load-media-btn">Load</button>
+                    </div>
                 </div>
 
                 <div class="sound-group">
                     <p>Volume</p>
                     <input type="range" id="volume-slider" min="0" max="100" value="50" class="volume-slider">
                 </div>
+
+                <div id="media-embed-container" class="media-embed-container"></div>
             </aside>
         
 
@@ -228,6 +228,7 @@
     <script src="./js/calendar.js" defer></script>
     <script src="./js/tasks.js" defer></script>
     <script src="./js/pomodoro.js" defer></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="./js/audio.js" defer></script>
 </body>
 </html>
