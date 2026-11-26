@@ -43,7 +43,7 @@
 /*right son*/
 .weekly-progress{
     width: 100%;
-    
+    margin-top: 30px;
     background-color: #ffffff;
     border: 1px solid #eaeaea;
     border-radius: 12px;

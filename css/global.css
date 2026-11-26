@@ -20,12 +20,16 @@
 --dark-border: #2a2a2d;
 --dark-text-main: #ffffff;
 --dark-text-muted: #a1a1aa;
+
+/*fonts*/
+--font-heading: 'Plus Jakarta Sans', sans-serif;
+--font-body:'Inter', sans-serif;
 }
 
 body{
     background-color: #f0f0f4;
     color: var(--text-main);
-    font-family: sans-serif;
+    font-family: var(--font-body);
     margin: 0;
 
     display: flex;
@@ -34,6 +38,19 @@ body{
     height: 100vh;
     box-sizing: border-box;
     overflow: hidden;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02rem;
+}
+
+button, input, select {
+    font-family: inherit;
+}
+
+#time-left {
+    font-variant-numeric: tabular-nums;
 }
 
 .main-content{
@@ -52,6 +69,15 @@ body{
     flex-direction: column;
 }
 
+.page-section {
+    display: none;
+}
+
+.page-section.active {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
 /* dark mode*/
 

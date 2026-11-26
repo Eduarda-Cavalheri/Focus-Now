@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusNow</title>
+    <link rel="shortcut icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+    <!-- Google Fonts: Plus Jakarta Sans (headings) & Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/tasks.css">
     <link rel="stylesheet" href="./css/calendar.css">
     <link rel="stylesheet" href="./css/pomodoro.css">
+    <link rel="stylesheet" href="./css/questions.css">
 
 </head>
-<body>
+<body class="dark-mode">
     <aside class="sidebar">
         <div class="sidebar-header">
             <h1>FocusNow</h1>
@@ -22,15 +29,15 @@
         <nav class="sidebar-nav">
             <span class="nav-title">Navigation</span>
             <ul>
-                <li><a href="#" class="active"><img src="/assets/icons/squares-four.svg" alt="Icon" class="nav-icon">Dashboard</a></li>
-                <li><a href="#"><img src="/assets/icons/timer.svg" alt="Icon" class="nav-icon">Pomodoro</a></li>
-                <li><a href="#"><img src="/assets/icons/list-checks.svg" alt="Icon" class="nav-icon">Questions</a></li>
-                <li><a href="#"><img src="/assets/icons/note-pencil.svg" alt="Icon" class="nav-icon">Mistake Journal</a></li>
-                <li><a href="#"><img src="/assets/icons/arrows-clockwise.svg" alt="Icon" class="nav-icon">Study Cycle</a></li>
-                <li><a href="#"><img src="/assets/icons/book-open-text.svg" alt="Icon" class="nav-icon">Reviews</a></li>
-                <li><a href="#"><img src="/assets/icons/check-square-offset.svg" alt="Icon" class="nav-icon">Tasks</a></li>
-                <li><a href="#"><img src="/assets/icons/calendar-blank.svg" alt="Icon" class="nav-icon">Calendar</a></li>
-                <li><a href="#"><img src="/assets/icons/chart-line-up.svg" alt="Icon" class="nav-icon">Progress</a></li>
+                <li><a href="#" class="active" data-target="dashboard" ><img src="/assets/icons/squares-four.svg" alt="Icon" class="nav-icon">Dashboard</a></li>
+                <li><a href="#" data-target="pomodoro"><img src="/assets/icons/timer.svg" alt="Icon" class="nav-icon">Pomodoro</a></li>
+                <li><a href="#" data-target="questions"><img src="/assets/icons/list-checks.svg" alt="Icon" class="nav-icon">Questions</a></li>
+                <li><a href="#" data-target="mistakes"><img src="/assets/icons/note-pencil.svg" alt="Icon" class="nav-icon">Mistake Journal</a></li>
+                <li><a href="#" data-target="study-cycle"><img src="/assets/icons/arrows-clockwise.svg" alt="Icon" class="nav-icon">Study Cycle</a></li>
+                <li><a href="#" data-target="reviews"><img src="/assets/icons/book-open-text.svg" alt="Icon" class="nav-icon">Reviews</a></li>
+                <li><a href="#" data-target="tasks"><img src="/assets/icons/check-square-offset.svg" alt="Icon" class="nav-icon">Tasks</a></li>
+                <li><a href="#" data-target="calendar"><img src="/assets/icons/calendar-blank.svg" alt="Icon" class="nav-icon">Calendar</a></li>
+                <li><a href="#" data-target="progress"><img src="/assets/icons/chart-line-up.svg" alt="Icon" class="nav-icon">Progress</a></li>
             </ul>
         </nav>
 
@@ -40,6 +47,7 @@
     </aside>
 
     <main class="main-content">
+        <section id="dashboard" class="page-section active">
         <header class="dashboard-header">
             <div class="header-date-container">
                 <span class="today-badge">Today</span>
@@ -90,7 +98,7 @@
 
         <article class="tasks-card">
             <div class="tasks-header">
-                <a href="#" class="link-tasks">Go to tasks <img src="/assets/icons/arrow-right.svg" alt="Arrow" class="small-icon"></a>
+                <a href="#" class="link-tasks" data-target="tasks">Go to tasks <img src="/assets/icons/arrow-right.svg" alt="Arrow" class="small-icon"></a>
             </div>
 
             <div class="tasks-body">
@@ -104,12 +112,12 @@
             </div>
         </article>
        </section> 
-
+    </section>
 
        <!--Pomodoro Timer-->
-    <section id="pomodoro" class="pomodoro-section">
+    <section id="pomodoro" class="page-section pomodoro-section">
+        <h2 class="pomodoro-title">Pomodoro</h2>
         <div class="pomodoro-layout">
-
             <!--background sound-->
             <aside class="sound-panel pomodoro-box">
                 <h3>Background Sound</h3>
@@ -223,6 +231,146 @@
     </div>
     </section>
 
+    <section id="questions" class="page-section questions-section">
+        <header class="questions-header">
+        <h2>Questions</h2>
+
+        <div class="questions-controls">
+            <div class="period-filters" id="questions-period-filters">
+                <button class="filter-pill active" data-period="week">Week</button>
+                <button class="filter-pill" data-period="month">Month</button>
+                <button class="filter-pill" data-period="all">All time</button>
+            </div>
+
+            <button id="open-question-modal-btn" class="primary-action-btn">+ Log Questions</button>
+        </div>
+        </header>
+
+        <!--Main grid-->
+        <div class="questions-grid">
+            <article class="q-card volume-card">
+                <div class="q-card-header">
+                    <div>
+                        <h3>Volume</h3>
+                        <span class="q-card-subtitle">Questions answered by date</span>
+                    </div>
+                </div>
+                <div id="volume-chart-container" class="volume-chart"></div>
+            </article>
+
+            <article class="q-card subjects-card">
+                <div class="q-card-header">
+                    <h3>Subjects</h3>
+                    <select id="subject-filter-select" class="subject-select" aria-label="Select subject">
+                        <option value="">No subjects yet</option>
+                    </select>
+                </div>
+                <div id="subjects-chart-container" class="subjects-chart"></div>
+            </article>
+
+            <article class="q-card overall-card">
+                <div class="q-card-header">
+                    <div>
+                        <h3>Overall Performance</h3>
+                        <span class="q-card-subtitle">General accuracy rate</span>
+                    </div>
+                </div>
+
+                <div class="overall-chart-wrapper">
+                    <div class="donut-chart" id="overall-donut">
+                        <div class="donut-inner">
+                            <span id="overall-percentage">0%</span>
+                            <small>Accuracy</small>
+                        </div>
+                    </div>
+
+                    <div class="overall-summary-bar" id="overall-summary">
+                        <span>Currect: <strong>0</strong></span>
+                        <span>Wrong: <strong>0</strong></span>
+                        <span>Total: <strong>0</strong></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+    <!--registro de questões-->
+    <div id="question-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Log Questions</h3>
+                <button id="close-question-modal-btn" class="modal-close-btn">&times;</button>
+            </div>
+
+            <form id="question-log-form" class="modal-form">
+                <div class="form-group">
+                    <label for="q-subject">Subject</label>
+                    <input type="text" id="q-subject" placeholder="e.g., Mathematics, Python..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="q-topic">Topic (Sub-subject)</label>
+                    <input type="text" id="q-topic" placeholder="e.g., Functions, Probability..." required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="q-board">Exam Board / Source</label>
+                        <input type="text" id="q-board" placeholder="e.g., ENEM, LeetCode...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q-date">Date</label>
+                        <input type="date" id="q-date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="q-total">Total Questions</label>
+                        <input type="number" id="q-total" min="1" placeholder="20" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q-correct">Correct Answers</label>
+                        <input type="number" id="q-correct" min="0" placeholder="16" required>
+                    </div>
+                </div>
+
+                <p id="q-form-error" class="form-error hidden"></p>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancel-question-btn" class="secondary-btn">Cancel</button>
+                    <button type="submit" class="primary-action-btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+
+    <section id="mistakes" class="page-section">
+        <h2>Mistake Journal</h2>
+    </section>
+
+    <section id="study-cycle" class="page-section">
+        <h2>Study Cycle</h2>
+    </section>
+
+    <section id="reviews" class="page-section">
+        <h2>Reviews</h2>
+    </section>
+
+    <section id="tasks" class="page-section">
+        <h2>Tasks</h2>
+    </section>
+
+    <section id="calendar" class="page-section">
+        <h2>Calendar</h2>
+    </section>
+
+    <section id="progress" class="page-section">
+        <h2>Progress</h2>
+    </section>
+
     </main>
     <script src="./js/navigation.js" defer></script>
     <script src="./js/calendar.js" defer></script>
@@ -230,5 +378,6 @@
     <script src="./js/pomodoro.js" defer></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="./js/audio.js" defer></script>
+    <script src="./js/questions.js" defer></script>
 </body>
 </html>
